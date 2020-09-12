@@ -201,7 +201,7 @@ class ProfileInfo extends StatelessWidget {
       ),
       Text(
         "Junior Undergraduate at IIT (BHU), Varanasi\n"
-        "Software Engineer to be..💻\n"
+        "Software Engineer to be..\n"
         "Android and Flutter 💖\n",
         softWrap: true,
         textScaleFactor: 1.5,
