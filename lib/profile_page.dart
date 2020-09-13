@@ -9,51 +9,35 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveWidget(
         largeScreen: Scaffold(
-            backgroundColor: Colors.blueGrey[900],
-            appBar: AppBar(
-              elevation: 0.0,
-              backgroundColor: Colors.blueGrey[900],
-            ),
-            drawer: ResponsiveWidget.isSmallScreen(context)
-                ? Drawer(
-                    child: ListView(
-                      padding: const EdgeInsets.all(20),
-                      children: <Widget>[
-                        NavButton(
-                          text: "about",
-                          onPressed: null,
-                          color: Color(0xff5CE5D5),
-                        ),
-                        NavButton(
-                          text: "work",
-                          onPressed: null,
-                          color: Color(0xff5CE5D5),
-                        ),
-                        NavButton(
-                          text: "contact",
-                          onPressed: null,
-                          color: Color(0xff5CE5D5),
-                        ),
-                      ],
-                    ),
-                  )
-                : null,
+            backgroundColor: Colors.blueGrey[900],  
             body: SingleChildScrollView(
               child: AnimatedPadding(
                 padding:
-                    EdgeInsets.all(MediaQuery.of(context).size.height * 0.1),
+                    EdgeInsets.all(MediaQuery.of(context).size.height * 0.075),
                 duration: Duration(seconds: 1),
                 child: ResponsiveWidget(
+                  smallScreen: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.01,
+                      ),
+                      ProfileInfo(),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.1,
+                      ),
+                      SocialInfo(),
+                    ],
+                  ),
                   largeScreen: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
-                      NavHeader(),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.1,
                       ),
                       ProfileInfo(),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.2,
+                        height: MediaQuery.of(context).size.height * 0.1,
                       ),
                       SocialInfo(),
                     ],
@@ -64,72 +48,6 @@ class ProfilePage extends StatelessWidget {
   }
 }
 
-class NavHeader extends StatelessWidget {
-  final List<Widget> navButtons;
-  const NavHeader({Key key, this.navButtons}) : super(key: key);
-  Widget build(BuildContext context) {
-    return ResponsiveWidget(
-      largeScreen: Row(
-        mainAxisAlignment: ResponsiveWidget.isSmallScreen(context)
-            ? MainAxisAlignment.center
-            : MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          DTDot(),
-          if (!ResponsiveWidget.isSmallScreen(context))
-            Row(
-              children: <Widget>[
-                NavButton(
-                  text: "about",
-                  onPressed: null,
-                  color: Color(0xff5CE5D5),
-                ),
-                NavButton(
-                  text: "work",
-                  onPressed: null,
-                  color: Color(0xff5CE5D5),
-                ),
-                NavButton(
-                  text: "contact",
-                  onPressed: null,
-                  color: Color(0xff5CE5D5),
-                ),
-              ],
-            )
-        ],
-      ),
-    );
-  }
-}
-
-class DTDot extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Text(
-          "DT",
-          textScaleFactor: 2,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        SizedBox(
-          width: 5,
-        ),
-        AnimatedContainer(
-          duration: Duration(seconds: 1),
-          height: 8,
-          width: 8,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Color(0xffB8FB3C),
-          ),
-        ),
-      ],
-    );
-  }
-}
 
 class NavButton extends StatelessWidget {
   final text;

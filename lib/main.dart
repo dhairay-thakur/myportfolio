@@ -1,4 +1,5 @@
-import 'package:dhairay_thakur/profile_page.dart';
+import 'package:dhairay_thakur/my_home_page.dart';
+// import 'package:dhairay_thakur/profile_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         primaryColorDark: Colors.black,
         fontFamily: "Cabin",
       ),
-      home: ProfilePage(),
+      home: MyHomePage(),
     );
   }
 }
