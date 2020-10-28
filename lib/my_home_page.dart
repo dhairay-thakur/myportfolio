@@ -4,11 +4,17 @@ import 'package:dhairay_thakur/profile_page.dart';
 import 'package:dhairay_thakur/work_page.dart';
 import 'package:dhairay_thakur/contact_page.dart';
 
-class MyHomePage extends StatelessWidget {
-  MyHomePage({Key key}) : super(key: key);
-  var list = ["Home", "About", "Work", "Contact"];
-  // var colors = [Colors.orange, Colors.blue, Colors.red, Colors.grey];
+class MyHomePage extends StatefulWidget {
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final list = ["Home", "About", "Work", "Contact"];
+
   PageController controller = PageController();
+
   final ScrollController scrollController = ScrollController();
 
   @override
@@ -73,7 +79,6 @@ class MyHomePage extends StatelessWidget {
     controller.animateToPage(index + 1,
         duration: Duration(seconds: 2), curve: Curves.fastLinearToSlowEaseIn);
   }
-
 }
 
 widgetLoader(int index) {
