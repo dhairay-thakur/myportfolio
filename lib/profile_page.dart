@@ -9,22 +9,23 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveWidget(
         largeScreen: Scaffold(
-            backgroundColor: Colors.blueGrey[900],  
+            backgroundColor: Colors.blueGrey[900],
             body: SingleChildScrollView(
               child: AnimatedPadding(
-                padding:
-                    EdgeInsets.all(MediaQuery.of(context).size.height * 0.075),
+                padding: ResponsiveWidget.isSmallScreen(context)
+                    ? EdgeInsets.all(MediaQuery.of(context).size.height * 0.03)
+                    : EdgeInsets.all(MediaQuery.of(context).size.height * 0.075),
                 duration: Duration(seconds: 1),
                 child: ResponsiveWidget(
                   smallScreen: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.01,
-                      ),
+                      // SizedBox(
+                      //   height: MediaQuery.of(context).size.height * 0.01,
+                      // ),
                       ProfileInfo(),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.1,
+                        height: MediaQuery.of(context).size.height * 0.02,
                       ),
                       SocialInfo(),
                     ],
@@ -47,7 +48,6 @@ class ProfilePage extends StatelessWidget {
             )));
   }
 }
-
 
 class NavButton extends StatelessWidget {
   final text;
@@ -98,77 +98,77 @@ class ProfileInfo extends StatelessWidget {
         ),
       );
 
-  final profileData = Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: <Widget>[
-      Text(
-        "Hi there! My name is",
-        textScaleFactor: 2,
-        style: TextStyle(color: Color(0xffB8FB3C)),
-      ),
-      Text(
-        "Dhairay\nThakur",
-        textScaleFactor: 4.5,
-        style: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      SizedBox(
-        height: 10,
-      ),
-      Text(
-        "Junior Undergraduate at IIT (BHU), Varanasi\n"
-        "Software Engineer to be..\n"
-        "Android and Flutter 💖\n",
-        softWrap: true,
-        textScaleFactor: 1.5,
-        style: TextStyle(color: Colors.white70),
-      ),
-      SizedBox(
-        height: 20,
-      ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  profileData(context) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          RaisedButton(
-            shape: StadiumBorder(),
-            child: Text(
-              'Resume',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.blueGrey[900],
-              ),
+          Text(
+            "Hi there! My name is",
+             textScaleFactor:ResponsiveWidget.isSmallScreen(context)?1.5:2,
+            style: TextStyle(color: Color(0xffB8FB3C),),
+          ),
+          Text(
+            "Dhairay\nThakur",
+            textScaleFactor: 4.5,
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
-            color: Color(0xffB8FB3C),
-            onPressed: () {
-              html.window.open(
-                  "https://drive.google.com/file/d/1SBIwNj1x-gD4bgMTQjx9BUXK2wbFyzCV/view?usp=sharing",
-                  "resume");
-            },
-            padding: EdgeInsets.all(10),
           ),
           SizedBox(
-            width: 20,
+            height: 10,
           ),
-          OutlineButton(
-            borderSide: BorderSide(
-              width: 5,
-              color: Color(0xffB8FB3C),
-            ),
-            shape: StadiumBorder(),
-            child: Text("Say Hi!"),
-            color: Color(0xffB8FB3C),
-            onPressed: () {
-              launch(
-                  'mailto:dhairaythakur.che18@iitbhu.ac.in?subject=Contacting From Portfolio&body=');
-            },
-            padding: EdgeInsets.all(10),
+          Text(
+            "Junior Undergraduate at IIT (BHU), Varanasi\n"
+            "Software Engineer to be..\n"
+            "Android and Flutter 💖\n",
+            softWrap: true,
+            textScaleFactor: 1.5,
+            style: TextStyle(color: Colors.white70),
+          ),
+          SizedBox(
+            height: ResponsiveWidget.isSmallScreen(context) ? 0 : 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              RaisedButton(
+                shape: StadiumBorder(),
+                child: Text(
+                  'Resume',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blueGrey[900],
+                  ),
+                ),
+                color: Color(0xffB8FB3C),
+                onPressed: () {
+                  html.window.open(
+                      "https://drive.google.com/file/d/1SBIwNj1x-gD4bgMTQjx9BUXK2wbFyzCV/view?usp=sharing",
+                      "resume");
+                },
+                padding: EdgeInsets.all(10),
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              OutlineButton(
+                borderSide: BorderSide(
+                  width: 5,
+                  color: Color(0xffB8FB3C),
+                ),
+                shape: StadiumBorder(),
+                child: Text("Say Hi!"),
+                color: Color(0xffB8FB3C),
+                onPressed: () {
+                  launch(
+                      'mailto:dhairaythakur.che18@iitbhu.ac.in?subject=Contacting From Portfolio&body=');
+                },
+                padding: EdgeInsets.all(10),
+              )
+            ],
           )
         ],
-      )
-    ],
-  );
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -176,17 +176,17 @@ class ProfileInfo extends StatelessWidget {
       largeScreen: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[profileImage(context), profileData],
+        children: <Widget>[profileImage(context), profileData(context)],
       ),
       smallScreen: Column(
         mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           profileImage(context),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.1,
           ),
-          profileData
+          profileData(context)
         ],
       ),
     );
@@ -246,7 +246,7 @@ class SocialInfo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           //see
-          ...socialMediaWidgets(),
+          //...socialMediaWidgets(),
           copyRightText(),
         ],
       ),

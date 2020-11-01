@@ -1,4 +1,4 @@
-import 'package:dhairay_thakur/about_page.dart';
+import 'package:dhairay_thakur/skills_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dhairay_thakur/profile_page.dart';
 import 'package:dhairay_thakur/work_page.dart';
@@ -11,7 +11,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final list = ["Home", "About", "Work", "Contact"];
+  final list = ["Home", "Skills", "Work", "Contact"];
 
   PageController controller = PageController();
 
@@ -28,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
             color: Colors.blueGrey[700],
             child: Row(
               children: <Widget>[
-                GestureDetector(
+                InkWell(
                   child: DTDot(),
                   onTap: () {
                     _scrollToIndex(-1);
@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Spacer(),
                 Row(
                   children: List.generate(3, (index) {
-                    return GestureDetector(
+                    return InkWell(
                       onTap: () {
                         _scrollToIndex(index);
                       },
@@ -86,7 +86,7 @@ widgetLoader(int index) {
     case 0:
       return ProfilePage();
     case 1:
-      return AboutPage();
+      return SkillsPage();
     case 2:
       return WorkPage();
     case 3:
