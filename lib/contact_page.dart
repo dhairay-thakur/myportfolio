@@ -12,8 +12,8 @@ class ContactPage extends StatelessWidget {
       return InkWell(
         borderRadius: BorderRadius.circular(
           ResponsiveWidget.isSmallScreen(context)
-              ? MediaQuery.of(context).size.height * 0.08
-              : MediaQuery.of(context).size.width * 0.05,
+              ? MediaQuery.of(context).size.height * 0.05
+              : MediaQuery.of(context).size.width * 0.07,
         ),
         onTap: () {
           html.window.open(url, icon);
@@ -21,11 +21,11 @@ class ContactPage extends StatelessWidget {
         child: AnimatedContainer(
           duration: Duration(seconds: 1),
           height: ResponsiveWidget.isSmallScreen(context)
-              ? MediaQuery.of(context).size.height * 0.08
-              : MediaQuery.of(context).size.width * 0.05,
+              ? MediaQuery.of(context).size.height * 0.05
+              : MediaQuery.of(context).size.width * 0.07,
           width: ResponsiveWidget.isSmallScreen(context)
-              ? MediaQuery.of(context).size.height * 0.08
-              : MediaQuery.of(context).size.width * 0.05,
+              ? MediaQuery.of(context).size.height * 0.05
+              : MediaQuery.of(context).size.width * 0.07,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             image: DecorationImage(
@@ -71,8 +71,8 @@ class ContactPage extends StatelessWidget {
                 InkWell(
                   borderRadius: BorderRadius.circular(
                     ResponsiveWidget.isSmallScreen(context)
-                        ? MediaQuery.of(context).size.height * 0.08
-                        : MediaQuery.of(context).size.width * 0.05,
+                        ? MediaQuery.of(context).size.height * 0.05
+                        : MediaQuery.of(context).size.width * 0.07,
                   ),
                   onTap: () {
                     launch(
@@ -81,11 +81,11 @@ class ContactPage extends StatelessWidget {
                   child: AnimatedContainer(
                     duration: Duration(seconds: 1),
                     height: ResponsiveWidget.isSmallScreen(context)
-                        ? MediaQuery.of(context).size.height * 0.08
-                        : MediaQuery.of(context).size.width * 0.05,
+                        ? MediaQuery.of(context).size.height * 0.05
+                        : MediaQuery.of(context).size.width * 0.07,
                     width: ResponsiveWidget.isSmallScreen(context)
-                        ? MediaQuery.of(context).size.height * 0.08
-                        : MediaQuery.of(context).size.width * 0.05,
+                        ? MediaQuery.of(context).size.height * 0.05
+                        : MediaQuery.of(context).size.width * 0.07,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(

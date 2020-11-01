@@ -22,12 +22,9 @@ class SkillsPage extends StatelessWidget {
     }
 
     space() => Container(
-          height: ResponsiveWidget.isSmallScreen(context)
-              ? MediaQuery.of(context).size.height * 0.07
-              : MediaQuery.of(context).size.width * 0.04,
           width: ResponsiveWidget.isSmallScreen(context)
-              ? MediaQuery.of(context).size.height * 0.07
-              : MediaQuery.of(context).size.width * 0.04,
+              ? MediaQuery.of(context).size.width * 0.04
+              : MediaQuery.of(context).size.width * 0.07,
         );
 
     loadIcon(icon, data) {

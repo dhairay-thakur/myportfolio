@@ -13,7 +13,7 @@ class WorkPage extends StatelessWidget {
             body: SingleChildScrollView(
               child: AnimatedPadding(
                 padding:
-                    EdgeInsets.all(MediaQuery.of(context).size.height * 0.075),
+                    EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.05),
                 duration: Duration(seconds: 1),
                 child: ResponsiveWidget(
                   smallScreen: Column(
@@ -21,10 +21,11 @@ class WorkPage extends StatelessWidget {
                     children: <Widget>[
 //content
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.175,
+                            // width: MediaQuery.of(context).size.width * 0.175,
                           ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
