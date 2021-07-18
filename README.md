@@ -2,4 +2,4 @@
 
 A new Flutter project.
 
-Visit [dhairaythakur.tech](http://dhairaythakur.tech/#/)
+Visit [dhairaythakur.tech](http://dhairaythakur.me/#/)
